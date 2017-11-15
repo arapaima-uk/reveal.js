@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/vs.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -25,7 +25,18 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<pre><code class="tsql stretch" data-trim>
+					SELECT * from Northwind.dbo.Products;	
+					EXEC('SELECT * FROM Northwind.dbo.Products')
+					SELECT * FROM sys.dm_exec_requests
+					SELECT * FROM sys.dm_exec_sql_text(@sql_handle)
+					SELECT * FROM dbo.MyFunc(@some_param)
+					EXEC dbo.MyProc @apples='Oranges', @answer=42
+					DBCC CHECKDB('Northwind') WITH NO INFOMSGS
+
+					</code></pre>
+				</section>
 			</div>
 		</div>
 
