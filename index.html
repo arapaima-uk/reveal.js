@@ -4,13 +4,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Disposable Development environments with Azure DevOps and Azure Resource Manager</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/vs.css">
+
+		<link rel="stylesheet" href="css/gc.css"/>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -24,19 +26,390 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>
-					<pre><code class="tsql stretch" data-trim>
-					SELECT * from Northwind.dbo.Products;	
-					EXEC('SELECT * FROM Northwind.dbo.Products')
-					SELECT * FROM sys.dm_exec_requests
-					SELECT * FROM sys.dm_exec_sql_text(@sql_handle)
-					SELECT * FROM dbo.MyFunc(@some_param)
-					EXEC dbo.MyProc @apples='Oranges', @answer=42
-					DBCC CHECKDB('Northwind') WITH NO INFOMSGS
+				<section><h2>Disposable Development environments</h2><h3>with Azure DevOps and Azure Resource Manager</h3>
+				<hr/>
+				<h4>Gavin Campbell</h4>
+				<h4><a href="https://arapaima.uk">arapaima.uk</a></h4>
+				<aside class="notes">Last thing before party<br/>End of a long day<br/>
+				Who am I <br/>Many things<br/><br/>
+				<u> Spare time</u><br/>
+				Sailing <br/>
+				Riding Lessons- BMW<br/>
+				Airport Lounges - Romantic City Breaks<br/>
 
-					</code></pre>
+				
+				
+			</aside>
 				</section>
+
+				
+
+				<section data-background="#ffffff">
+					<pre>TODO: Establish credibilty by hinting at a prosperous consulting lifestyle</pre>
+					<aside class="notes">Why are we here?</aside>
+				</section>
+				<section>
+					<img class = "plain stretch" src = "img/hourglass.jpg"/>
+				</section>
+				<section>
+					<h4>Everything you ever wanted to know about Data Factory, all on one slide</h4>
+					<img class = "plain " src="img/big-picture.png"/>
+					<br/>
+					<img class = "plain fragment " src="img/relationship-between-data-factory-entities.png"/>
+					<cite><a href = "https://docs.microsoft.com/en-gb/azure/data-factory/introduction">docs.microsoft.com, Introduction to Data Factory</a></cite>
+				</section>
+
+				<section>
+					<h2>Solution Overview</h2>
+					<img class = "plain stretch" src = "img/overview.png"/>
+				</section>
+				<section>
+					<h2>The Portal</h2>
+					<img class = "plain stretch" src = "img/portal.jpg"/>
+				</section>
+				<section>
+					<h3>Developing ADF pipelines in the Portal</h3>
+					<img class = "plain stretch" src = "img/dragNdrop.gif"/>
+				</section>
+				<section>
+					<img class = "plain stretch" src = "img/noSaveOnlyPublish.png"/>
+					<blockquote>Publish or Publish Not. There is No Save</blockquote>
+				</section>
+				<section>
+					<img class = "plain stretch" src= "img/importExport.png"/>
+				</section>
+				<section>
+					<h4>Unforced Paramaterisation</h4>
+					<img class = "plain stretch" src= "img/params.gif" />
+				</section>
+				<section>
+					<h4>Enterprise Scale</h4>
+					<img class = "plain stretch" src= "img/moreDevelopers.jpg" />
+				</section>
+				<section>
+					<h4>A tale of two developers</h4>
+						<div class="grid2x2">
+								<div><div><img src="img/step1.png" class="fragment"></div></div>
+								<div><div><img src="img/step2.png" class="fragment"></div></div>
+								<div><div><img src="img/step3.png" class="fragment"></div></div>
+								<div><div><img src="img/step4.png" class="fragment"></div></div>
+							  </div>
+				</section>
+				
+					<section>
+						<h4>What's missing from this picture?</h4>
+						
+						
+
+					
+
+					<div class="container">
+
+							<div class="col">
+									<img class = "plain fragment" src = "img/Git_icon.svg.png"/>
+							</div>
+							
+							<div class="col">
+									<blockquote class="fragment" >Source control is what allows us to scale beyond one developer.</blockquote>
+							</div>
+							
+							</div>
+					</section>
+
+					<section>
+							<img class = "plain stretch" src = "img/gitGetsEasier.png"/>
+					</section>
+
+
+
+					<section>
+						<h5>git - the essentials</h5>
+							<img class = "plain stretch" src = "img/featureworkflow.png"/>
+					</section>
+
+					<section>
+							<img class = "plain stretch" src = "img/setUpCodeRepo.png"/>
+					</section>
+
+<section>
+					<section>
+					<h3>From the horse's mouth</h3>
+						<small><i>Here is the entire lifecycle for continuous integration & delivery that you can use after you enable Azure Repos Git integration in the Data Factory UI:</i>
+							<br/><br/>
+					<ol >
+<li> Set up a development data factory with Azure Repos in which all developers can author Data Factory resources like pipelines, datasets, and so forth.</li>
+<li>Then developers can modify resources such as pipelines. As they make their modifications, they can select Debug to see how the pipeline runs with the most recent changes.</li>
+<li>After developers are satisfied with their changes, they can create a pull request from their branch to the master branch (or the collaboration branch) to get their changes reviewed by peers.</li>
+<li>After changes are in the master branch, they can publish to the development factory by selecting Publish.</li>
+<li>When the team is ready to promote changes to the test factory and the production factory, they can export the Resource Manager template from the master branch, or from any other branch in case their master branch backs the live development Data Factory.</li>
+<li>The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.</li>
+</ol></small>
+<br/><br/>
+<cite><a href="https://github.com/MicrosoftDocs/azure-docs/blob/93fec8e0932dcc45a7d1417c434bc17ffc874570/articles/data-factory/continuous-integration-deployment.md">docs.microsoft.com, Continuous integration and delivery (CI/CD) in Azure Data Factory</a></cite>
+			
+
+
+</section>
+<section>
+		<img class = "plain stretch" src = "img/meerkats.jpg"/>
+</section>
+</section>
+	
+		<section>
+		<img class = "plain stretch" src = "img/changesSavedtoMaster.gif"/>
+		</section>		
+
+		<section>
+				<img class = "plain stretch" src = "img/commitMessagesInMaster.png"/>
+		</section>
+
+		<section>
+				<img class = "plain stretch" src = "img/protectingTheMasterBranch.png"/>
+		</section>
+		<section>
+				<img class = "plain stretch" src = "img/cantSaveAnyMore.gif"/>
+		</section>
+
+
+		
+		<section>
+			<h4>The publish process</h4>
+
+			<div class="container">
+
+					<div class="col">
+							<img class = "plain stretch fragment" src = "img/masterBranchStructure.png"/>
+					</div>
+					
+					<div class="col">
+							<img class = "plain stretch fragment" src = "img/adf_publishStructure.png"/>
+					</div>
+					
+					</div>
+			</section>
+
+
+		</section>
+
+		<section>
+			<blockquote>
+				Developing abstractions intended to simplify the use of git source control rarely ends well.
+			</blockquote>
+		</section>
+
+		<section>
+			<h4>WHere do we go from here?</h4>
+				<img class = "plain stretch" src = "img/forkInRoad.jpg"/>
+		</section>
+		<section>
+			<h3>ARM Templates</h3>
+			<img class = "plain stretch" src = "img/armtemplate.png"/>
+
+		</section>
+
+		<section>
+			<h3>ARM Templates</h3>
+			<b>Template deployment</b>
+			<blockquote>With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state.</blockquote>
+			<cite><a href = "https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment">docs.microsoft.com, Resource Manager</a></cite>	
+		</section>
+
+		<section>
+				<h3>ARM Templates</h3>
+				<img class = "plain stretch" src = "img/arm4vsCode.png"/>
+		
+		</section>
+
+		<section>
+			<h4>All our resources are defined in the same place</h4>
+			<img class = "plain stretch" src = "img/adfInVsCode.png"/>
+		</section>
+
+		<section>
+			<pre><code data-trim class="stretch">
+					{
+						"name": "[parameters('adlsAccountName')]",
+						"type": "Microsoft.DataLakeStore/accounts",
+				
+						"apiVersion": "2016-11-01",
+						"location": "[resourceGroup().location]",
+						"scale": null,
+						"properties": {},
+						"dependsOn": [],
+						"resources":[
+							{
+								"type": "Microsoft.DataLakeStore/accounts/providers/roleAssignments",
+								"apiVersion": "2017-05-01",
+								"name": "[concat(parameters('adlsAccountName'), '/Microsoft.Authorization/', guid(resourceId('Microsoft.DataLakeStore/accounts', parameters('adlsAccountName'))))]",
+								"dependsOn": [
+									"[resourceId('Microsoft.DataLakeStore/accounts', parameters('adlsAccountName'))]"
+								  ],
+								"properties": {
+								"roleDefinitionId": "[variables('readerRoleDefinition')]",
+								"principalId": "[reference(concat('Microsoft.DataFactory/factories/', parameters('dataFactoryName')), '2018-06-01', 'Full').identity.principalId]"
+									
+
+			</code></pre>
+		</section>
+
+		<section>
+			<pre><code data-trim class = "stretch">
+					"parameters": {
+						"storageAccountName": {
+							"type": "string",
+							"defaultValue": "[concat('kebabstor', uniqueString(resourceGroup().id))]"
+						},
+						"adlsAccountName": {
+							"type": "string",
+							"defaultValue": "[concat('kebabadls', uniqueString(resourceGroup().id))]"
+						},
+						"adfApplicationId":{
+							"type": "string"
+				
+						},
+						"adfApplicationKey":{
+							"type": "securestring"
+				
+						},
+						"dwServerName": {
+							"type": "string",
+							"defaultValue": "[concat('kebabDwServer', uniqueString(resourceGroup().id))]"
+						},  
+
+						"dwTierName":{
+							"type": "string",
+							"defaultValue": "DW100c"
+						}
+					}
+
+			</code></pre>
+		</section>
+		<section>
+			<h4>Resources deployed to Azure</h4>
+			<img class="plain stretch" src="img/resourcesDeployedToAzure.png"/>
+			<aside class="notes">But how did they get there?</aside>
+		</section>
+
+		<section data-background="img/devopsName.jpg" data-background-size="contain"></section>
+
+		<section data-transition="none">
+			<h3>The Build Definition</h3>
+			<img class = "plain stretch" src = "img/builddefinition.png"/>
+
+		</section>
+
+		<section  data-transition="none">
+				<h3>The Build Definition</h3>
+				<img class = "plain stretch" src = "img/builddefinitionRgNameHighlighted.png"/>
+	
+		</section>
+
+		<section>
+			<h3>The Build Trigger</h3>
+			<img class = "plain stretch" src = "img/buildtriggers.png"/>
+		</section>
+
+		<section>
+			<h3>Creating a branch</h3>
+			<img class = "plain stretch" src = "img/citrigger.gif"/>
+
+		</section>
+		<section>
+			<h4>The tests were passing when the branch was created...</h4>
+			<img class = "plain stretch" src="img/testsPassed.png"/>
+				
+		</section>
+
+		<section>
+			<h3>A dedicated environment for this branch</h3>
+			<img class = "plain stretch" src = "img/resourceGroupForFeatureBranch.png"/>
+		</section>
+
+		<section>
+			<h3>Debugging the Data Factory</h3>
+			<img class = "plain stretch" src = "img/dedicateddatafactory.png"/>
+
+		</section>
+
+		<section>
+			<h3>Completing the feature</h3>
+			<img class = "plain stretch" src = "img/creatingApullRequest.png"/>
+		</section>
+
+		<section>
+			<h3>Merging the feature</h3>
+			<img class = "plain stretch" src = "img/mergingThePullRequest.png"/>
+		</section>
+
+		<section data-transition="zoom">
+			<h1>Now for the science bit...</h1>
+		</section>
+
+		<section>
+			<h3>Service Hooks</h3>
+			<img class = "plain stretch" src = "img/serviceHookStep0.png"/>
+		</section>
+		<section>
+			<h3>Service Hooks</h3>
+			<img class = "plain stretch" src = "img/serviceHookStep1.png"/>
+		</section>
+		<section>
+			<h3>Service Hooks</h3>
+			<img class = "plain stretch" src = "img/serviceHookStep2.png"/>
+		</section>	
+		<section data-transition="in-slide out-none"> 
+			<h3>Service Hooks</h3>
+			<img class = "plain stretch" src = "img/serviceHookStep3.png"/>
+		</section>	
+		<section data-transition="in-none out-slide">
+				<h3>Service Hooks</h3>
+				<img class = "plain stretch" src = "img/serviceHookStep3Highlighted.png"/>
+		</section>	
+		<section>
+			<h3>Meanwhile, in Azure Automation</h3>
+			<img class = "plain stretch" src="img/createwebhook.png"/>
+		</section>	
+		<section>
+				<h3>The Terminator</h3>
+				<img class = "plain stretch" src="img/createRunbook.png"/>
+		</section>	
+		<section>
+				<h3>Completing the pull request...</h3>
+				<img class = "plain stretch" src="img/prcompleted.png"/>
+		</section>	
+		<section>
+				<h3>C...triggers the runbook...</h3>
+				<img class = "plain stretch" src="img/runbookRunning.png"/>
+		</section>	
+		<section>
+				<h3>...which deletes the resource group</h3>
+				<img class = "plain stretch" src="img/resourceGroupDeleting.png"/>
+		</section>	
+		<section>
+				<h3>We also build and deploy the master branch...</h3>
+				<img class = "plain stretch" src="img/deployingMasterAfterPRMerge.png"/>
+				
+		</section>
+		<section>
+				<h3>...and run our tests...</h3>
+				<img class = "plain stretch" src="img/testsPassed.png"/>
+		</section>
+		<section>
+				<h3>...and save the build artefacts</h3>
+				<img class = "plain stretch" src="img/builddefinitionPublishStep.png"/>
+		</section>
+		
+
+
+						
+		
+
+
+
+
+
+
+
 			</div>
 		</div>
 
@@ -48,6 +421,9 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				width: 1920,
+				height: 1080,
+				slideNumber: "c/t",
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },

@@ -20,7 +20,7 @@ body {
 
 .reveal {
   font-family: "Lato", sans-serif;
-  font-size: 40px;
+  font-size: 64px;
   font-weight: normal;
   color: #333; }
 
@@ -99,6 +99,7 @@ body {
 .reveal ul {
   display: inline-block;
   text-align: left;
+ /* font-size: 0.8em; */
   margin: 0 0 0 1em; }
 
 .reveal ol {
