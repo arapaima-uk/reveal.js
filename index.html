@@ -26,16 +26,14 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<section data-background-image="img/sqlbitsBranding.png"></section>
 				<section><h2>Disposable Development environments</h2><h3>with Azure DevOps and Azure Resource Manager</h3>
 				<hr/>
 				<h4>Gavin Campbell</h4>
 				<h4><a href="https://arapaima.uk">arapaima.uk</a></h4>
 				<aside class="notes">Last thing before party<br/>End of a long day<br/>
 				Who am I <br/>Many things<br/><br/>
-				<u> Spare time</u><br/>
-				Sailing <br/>
-				Riding Lessons- BMW<br/>
-				Airport Lounges - Romantic City Breaks<br/>
+
 
 				
 				
@@ -44,28 +42,58 @@
 
 				
 
-				<section data-background="#ffffff">
-					<pre>TODO: Establish credibilty by hinting at a prosperous consulting lifestyle</pre>
-					<aside class="notes">Why are we here?</aside>
-				</section>
+	
 				<section>
 					<img class = "plain stretch" src = "img/hourglass.jpg"/>
+					<aside class="notes">
+						Similar talks for 2-3 years <br/>
+						Wasn't on SQLBits Agenda - Big Data and Paas<br/>
+						Customers have this in prod now<br/>
+						Not only about data<br/>
+					</aside>
 				</section>
 				<section>
-					<h4>Everything you ever wanted to know about Data Factory, all on one slide</h4>
-					<img class = "plain " src="img/big-picture.png"/>
+					<h4>Everything you ever wanted to know about Data Factory</h4>
+					<img class = "plain stretch" src="img/big-picture.png"/>
 					<br/>
-					<img class = "plain fragment " src="img/relationship-between-data-factory-entities.png"/>
+				
 					<cite><a href = "https://docs.microsoft.com/en-gb/azure/data-factory/introduction">docs.microsoft.com, Introduction to Data Factory</a></cite>
+					<aside class = "notes">
+						Not really SSIS for the Snapchat generation
+					</aside>
 				</section>
 
 				<section>
-					<h2>Solution Overview</h2>
+					<h4>Everything you ever wanted to know about Data Factory</h4>
+
+					<img class = "plain stretch " src="img/relationship-between-data-factory-entities.png"/>
+					<cite><a href = "https://docs.microsoft.com/en-gb/azure/data-factory/introduction">docs.microsoft.com, Introduction to Data Factory</a></cite>
+					<aside class = "notes">
+						Not really SSIS for the Snapchat generation
+					</aside>
+				</section>
+
+				<section>
+					<h2>An Example Scenario</h2>
 					<img class = "plain stretch" src = "img/overview.png"/>
+					<aside class = "notes">
+						Actual websites that do useful things<br/>
+						Had to do some online research<br/>
+						Channel 9</br>
+						ALl about the...
+					</aside>
 				</section>
 				<section>
 					<h2>The Portal</h2>
 					<img class = "plain stretch" src = "img/portal.jpg"/>
+					<aside class = "notes">
+						Transport through space and time<br/>
+						Alternate dimension<br/>
+						Ordinary rules don't apply<br/>
+						In this case, the <b>cloud</b><br/>
+						So how do we develop our ADF pipelines in the cloud?
+
+					</aside>
 				</section>
 				<section>
 					<h3>Developing ADF pipelines in the Portal</h3>
@@ -81,6 +109,12 @@
 				<section>
 					<h4>Unforced Paramaterisation</h4>
 					<img class = "plain stretch" src= "img/params.gif" />
+					<aside class="notes">
+						Configuration over convention<br/>
+						StackOverflow guy with 293 params<br/>
+						Customer story - with V1 - can't tell the devs the secrets<br/>
+						What was the name of the team that did this...
+					</aside>
 				</section>
 				<section>
 					<h4>Enterprise Scale</h4>
@@ -114,10 +148,24 @@
 							</div>
 							
 							</div>
+							<aside class="notes">
+								In the old days, BI solutions were developed by "that guy" in the corner.<br/>
+								None of this stuff mattered<br/>
+								It does now<br/>
+
+								So, we're all cool with how git works, right?<br/>
+							
+							</aside>
 					</section>
 
 					<section>
 							<img class = "plain stretch" src = "img/gitGetsEasier.png"/>
+							<aside class = "notes">
+								Seems complicated<br/>
+								Solving a complicated problem<br/>
+								Smart people - workflows - simplify the problem<br/>
+								Reduce the surface area of git we need to know about to get work done<br/>
+							</aside>
 					</section>
 
 
@@ -125,6 +173,9 @@
 					<section>
 						<h5>git - the essentials</h5>
 							<img class = "plain stretch" src = "img/featureworkflow.png"/>
+							<aside class = "notes">
+								If you want to know more about git..
+							</aside>
 					</section>
 
 					<section>
@@ -147,11 +198,22 @@
 <br/><br/>
 <cite><a href="https://github.com/MicrosoftDocs/azure-docs/blob/93fec8e0932dcc45a7d1417c434bc17ffc874570/articles/data-factory/continuous-integration-deployment.md">docs.microsoft.com, Continuous integration and delivery (CI/CD) in Azure Data Factory</a></cite>
 			
-
+<aside class="notes">
+	So what does this shared development sandbox look like?
+</aside>
 
 </section>
 <section>
 		<img class = "plain stretch" src = "img/meerkats.jpg"/>
+		<aside class = "notes">
+			Who here does - or did - SQL or BI dev on-prem?<br/>
+			How much fun is it sharing a dev database with a bunch of other people?<br/>
+			Any app devs? Monkey patching whilst debugging?<br/>
+			<br/>
+
+			Take the things that were a terrible idea on prem and "lift and shift" to the cloud.<br/>
+			Let's see what this looks like in action...
+		</aside>
 </section>
 </section>
 	
@@ -168,12 +230,11 @@
 		</section>
 		<section>
 				<img class = "plain stretch" src = "img/cantSaveAnyMore.gif"/>
+				<aside class = "notes">What does publish do anyway?</aside>
 		</section>
-
-
-		
+				
 		<section>
-			<h4>The publish process</h4>
+			<h4>Behind the scenes...</h4>
 
 			<div class="container">
 
@@ -186,6 +247,16 @@
 					</div>
 					
 					</div>
+					<aside class = "notes">
+						Where is the USQL script file?<br/>
+						Where are the other resources - the database, the buckets, the data lake accounts?<br/>
+						Is "Data Lake Only Development" really a thing?<br/>
+						Is this only useful for "Copy Data"?<br/>
+						If those resources are in a different repo, how do we manage that dependency?<br/><br/>
+
+						git submodules - buy a Peroni for everyone else here...
+
+					</aside>
 			</section>
 
 
@@ -197,13 +268,38 @@
 			</blockquote>
 		</section>
 
+
 		<section>
 			<h4>WHere do we go from here?</h4>
 				<img class = "plain stretch" src = "img/forkInRoad.jpg"/>
+				<aside class="notes">
+					Is the portal a road to nowhere?<br/>
+					3 years ago V1 of this talk and V1 of datafactory - this was much worse - Channel 9...<br/>
+					Really wanted this to be good<br/>
+					In-browser development is the future - things go wrong with desktops - and demos!<br/>
+					However we are working, To add value, software needs to be deliverable<br/>
+					Microsoft sales rep talking to CFO<br/>
+					CFO says the Consultants told him everything must have DevOps <br/>
+					Data Orchestration tool like Luigi - Spotify<br/>
+					MS Loves open source? - but not that open source<br/>
+					Well, we've got this thing called data factory, we'll just RubDevOpsOnIt<br/><br/>
+					So what do we do? Turns out the answer is right here...
+
+				</aside>
 		</section>
+
+
+
 		<section>
 			<h3>ARM Templates</h3>
 			<img class = "plain stretch" src = "img/armtemplate.png"/>
+
+			<aside class="notes">
+				In the adf publish branch we have everything we need<br/>
+				Including the config :-(<br/>
+				Mentioned this thing called ARM templates without defining it...
+
+			</aside>
 
 		</section>
 
@@ -341,10 +437,6 @@
 			<img class = "plain stretch" src = "img/mergingThePullRequest.png"/>
 		</section>
 
-		<section data-transition="zoom">
-			<h1>Now for the science bit...</h1>
-		</section>
-
 		<section>
 			<h3>Service Hooks</h3>
 			<img class = "plain stretch" src = "img/serviceHookStep0.png"/>
@@ -378,7 +470,7 @@
 				<img class = "plain stretch" src="img/prcompleted.png"/>
 		</section>	
 		<section>
-				<h3>C...triggers the runbook...</h3>
+				<h3>...triggers the runbook...</h3>
 				<img class = "plain stretch" src="img/runbookRunning.png"/>
 		</section>	
 		<section>
@@ -391,14 +483,48 @@
 				
 		</section>
 		<section>
+			<h3>THe "master" resource group</h3>
+			<img class = "plain stretch" src="img/masterResourceGroup.png"/>
+		</section>
+		<section>
 				<h3>...and run our tests...</h3>
-				<img class = "plain stretch" src="img/testsPassed.png"/>
+				<img class = "plain stretch" src="img/testspassedinMaster.png"/>
 		</section>
 		<section>
 				<h3>...and save the build artefacts</h3>
 				<img class = "plain stretch" src="img/builddefinitionPublishStep.png"/>
 		</section>
+		<section>
+			<h3>Release Management</h3>
+			<img class = "plain stretch" src="img/releasePipeline.png"/>
+
+		</section>
+		<section>
+			<h3>Release to Staging</h3>
+			<img class = "plain stretch" src="img/releaseToStaging.png"/>
+			
+		</section>
+		<section>
+			<h3>Hang on a minute...</h3>
+			<img class = "plain stretch" src="img/predeployapproval.png"/>
+		</section>
+		<section>
+			<h3>Release to Production</h3>
+			<img class = "plain stretch" src="img/productionparams.png"/>
+		</section>
+		<section>
+			<h4>Summary</h4>
+			
+			<img class = "plain stretch" src="img/overallflow.png"/>
+
+		</section>
+		<section data-transition="zoom">
+			<h1>
+			Audience participation...
+			</h1>
 		
+		
+		</section>
 
 
 						
